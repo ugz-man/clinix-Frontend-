@@ -35,7 +35,7 @@ export const updateMe = async function (data: FormData) {
   form.append("gender", data.get("gender") as string);
   form.append("address", data.get("address") as string);
 
-  if (data.get("imageInput")?.name !== "undefined")
+  if ((data.get("imageInput") as File)?.name !== "undefined")
     form.append("profilePicture", data.get("imageInput") as Blob);
 
   const res = await fetch(`${BACKEND_URL}/api/v1/users/updateMe`, {
