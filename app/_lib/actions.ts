@@ -46,7 +46,7 @@ export const updateMe = async function (data: FormData) {
     },
   });
 
-  if (!res.ok) return console.log(await res?.json());
+  if (!res.ok) throw new Error((await res?.json()).message);
 
   revalidatePath("/my-profile");
 };

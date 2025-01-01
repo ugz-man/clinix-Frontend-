@@ -14,6 +14,12 @@ const nextConfig = {
         port: "5000",
         pathname: "/images/users/*",
       },
+      {
+        protocol: "http",
+        hostname: "clinix-backend.onrender.com",
+        port: "",
+        pathname: "/images/users/*",
+      },
     ],
   },
 };

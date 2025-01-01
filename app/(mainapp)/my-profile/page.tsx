@@ -9,12 +9,15 @@ export default async function Page() {
   const user = await getMe();
 
   // get the DOB and format it to yyy-mm-dd
-  const date = new Date(user.data.DOB);
-  const formattedDate = new Intl.DateTimeFormat("en-CA", {
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-  }).format(date);
+  let formattedDate;
+  if (user.data.DOB !== undefined) {
+    const date = new Date(user.data.DOB);
+    formattedDate = new Intl.DateTimeFormat("en-CA", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    }).format(date);
+  }
 
   return (
     <div className="flex flex-col gap-12 rounded border p-5">
